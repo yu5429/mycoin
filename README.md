@@ -1,1 +1,1 @@
-# mycoin project
+
