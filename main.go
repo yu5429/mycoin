@@ -1,10 +1,46 @@
 package main
 
-import "fmt"
+import (
+	"crypto/sha256"
+	"fmt"
+)
+
+type block struct {
+	data     string
+	hash     string
+	prevHash string
+}
+
+type blcokchain struct {
+	blocks []block
+}
+
+func (b *blcokchain) getLastHash() string {
+	if len(b.blocks) > 0 {
+		return b.blocks[len(b.blocks)-1].hash
+	}
+	return ""
+}
+
+func (b *blcokchain) addBlock(data string) {
+	newBlock := block{data, "", b.getLastHash()}
+	hash := sha256.Sum256([]byte(newBlock.data + newBlock.prevHash))
+	newBlock.hash = fmt.Sprintf("%x", hash)
+	b.blocks = append(b.blocks, newBlock)
+}
+
+func (b *blcokchain) listBlocks() {
+	for _, block := range b.blocks {
+		fmt.Printf("Data: %s\n", block.data)
+		fmt.Printf("Hash: %s\n", block.hash)
+		fmt.Printf("Prev Hash: %s\n", block.prevHash)
+	}
+}
 
 func main() {
-	foods := []string{"ramen", "kimchi", "sushi"}
-	fmt.Printf("%v\n", foods)
-	foods = append(foods, "rice")
-	fmt.Print(foods)
+	chain := blcokchain{}
+	chain.addBlock("Genesis Block")
+	chain.addBlock("Second Block")
+	chain.addBlock("Third Block")
+	chain.listBlocks()
 }
