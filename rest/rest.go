@@ -28,10 +28,6 @@ type urlDescription struct {
 	Payload     string `json:"payload,omitempty"`
 }
 
-func (u urlDescription) String() string {
-	return "Hello I'm the URL Description"
-}
-
 type AddBlockBody struct {
 	Message string
 }
@@ -64,7 +60,6 @@ func documentation(rw http.ResponseWriter, r *http.Request) {
 			Description: "See A Block",
 		},
 	}
-	fmt.Println(data)
 	rw.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(rw).Encode(data)
 }
