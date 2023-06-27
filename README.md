@@ -13,7 +13,6 @@ main 실행<br>
 ![image](https://github.com/yu5429/mycoin/assets/123722364/2dfd3b38-2a4b-409f-987d-ad485f327607)
 <br><br><br><br>
 ***
-**실행 후 api로 이동 원하는 url에 요청 보내기** <br><br>
 
 **각 URL별 기능**
 4000: 기본 화면<br>
