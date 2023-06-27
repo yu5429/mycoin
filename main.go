@@ -1,9 +1,11 @@
 package main
 
 import (
-	"github.com/yu5429/mycoin/blockchain"
+	"github.com/yu5429/mycoin/cli"
+	"github.com/yu5429/mycoin/db"
 )
 
 func main() {
-	blockchain.Blockchain()
+	defer db.Close()
+	cli.Start()
 }
