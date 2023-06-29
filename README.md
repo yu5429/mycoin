@@ -1,10 +1,10 @@
 # mycoin project
 블록체인 구현 완료 <br>
-노마드 코더 강의를 통해서 Go로 제작한 블록체인입니다. <br>
+노마드 코더 강의를 통해서 Go로 제작한 블록체인입니다. 코인은 아직 미구현<br>
 같이 제작된 rest api로 블록체인을 추가, 확인 할 수 있습니다. <br>
 
 <br><br>
-코인도 차후 구현 예정
+
 <br><br><br><br><br>
 **블록체인 구현 모습**<br><br>
 
@@ -28,12 +28,12 @@ main 실행<br>
 <br>
 ***
 **새로운 블록 추가**<br>
-(POST)4000/blocks URL request로 새로운 블록 추가<br>
+새로운 블록 추가<br>
 ![image](https://github.com/yu5429/mycoin/assets/123722364/abf7962d-f8f6-44df-95ed-cd0260c6f701)
 <br>
 ***
 **추가된 블록 확인**<br>
-4000/blocks URL request로 추가된 블록 확인<br>
+추가된 블록 확인<br>
 ![image](https://github.com/yu5429/mycoin/assets/123722364/959b1393-b66d-496e-91f5-1fcd599944f7)
 <br><br>
 **계속 추가된  블록**<br>
