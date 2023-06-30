@@ -17,7 +17,7 @@ type Block struct {
 }
 
 func (b *Block) persist() {
-	db.SaveBlock(b.Hash, utils.ToBytes(b))
+	db.SaveBlock(b.Hash, utils.ToBytes(b)) //hash를 key로 데이터 저장, DB 데이터는 byte만 받기에 변환 후 저장
 }
 
 var ErrNotFound = errors.New("block not found")

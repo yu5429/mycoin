@@ -21,7 +21,7 @@ func (b *blockchain) restore(data []byte) { //블록체인 전체 decode
 }
 
 func (b *blockchain) persist() {
-	db.SaveBlockchain(utils.ToBytes(b))
+	db.SaveCheckpoint(utils.ToBytes(b))
 }
 
 func (b *blockchain) AddBlock(data string) {
@@ -46,7 +46,7 @@ func (b *blockchain) Blocks() []*Block { //전체 블록체인 가져오기
 	return blocks
 }
 
-func Blockchain() *blockchain {
+func Blockchain() *blockchain { //starting point
 	if b == nil {
 		once.Do(func() {
 			b = &blockchain{"", 0}

@@ -20,7 +20,7 @@ func DB() *bolt.DB {
 		utils.HandleErr(err)
 		db = dbPointer
 		err = db.Update(func(t *bolt.Tx) error {
-			_, err := t.CreateBucketIfNotExists([]byte(dataBucket))
+			_, err := t.CreateBucketIfNotExists([]byte(dataBucket)) //CreateBucketIfNotExists : DB에서 Bucket 생성
 			utils.HandleErr(err)
 			_, err = t.CreateBucketIfNotExists([]byte(blocksBucket))
 			return err
@@ -43,7 +43,7 @@ func SaveBlock(hash string, data []byte) {
 	utils.HandleErr(err)
 }
 
-func SaveBlockchain(data []byte) {
+func SaveCheckpoint(data []byte) {
 	err := DB().Update(func(t *bolt.Tx) error {
 		bucket := t.Bucket([]byte(dataBucket))
 		err := bucket.Put([]byte(checkpoint), data)
